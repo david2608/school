@@ -19,11 +19,15 @@ The design is editorial, direct, and practice-focused: warm paper, near-black in
 ## Architecture
 
 - Vite + React SPA; React Router owns routes.
-- `src/data.js` is the complete demo content source.
+- `src/lib/auth.jsx` owns live session state and `src/lib/student.jsx` owns the shared student experience.
+- `src/lib/api.js` is the single Supabase query/mutation layer.
+- `src/data.js` remains the complete demo fallback content source.
 - `src/lib/supabase.js` creates a client only when both Vite environment values exist.
 - With credentials absent, login deliberately enters demo mode so every route is reviewable.
-- `supabase/schema.sql` defines the initial relational model and student-scoped RLS.
+- With credentials present, cabinet routes require Auth and load profile, enrollment, course, lessons, progress, resources, assignments, submissions, marks, and feedback from Supabase.
+- Course completion combines required completed lessons and required submitted assignments. Skill scores are separate and hidden in live mode when absent.
+- `supabase/schema.sql` defines the relational model, public application insert, and student-scoped RLS. `supabase/seed.sql` creates one test journey.
 
 ## Next implementation steps
 
-Replace demo data route by route, beginning with auth/session handling, enrollment/course queries, and progress mutations. Add a protected-route wrapper when production auth is enabled. Upload private lesson files to Supabase Storage and issue signed URLs rather than storing public URLs. Applications currently acknowledge locally; wire the form to a protected Edge Function or a dedicated table with anti-spam protection before launch.
+Configure the first Supabase project, replace seed URLs with real recordings/materials, and add rate limiting at the edge if application spam becomes material. The student MVP is real; mentor/admin operations remain in Supabase Studio.
