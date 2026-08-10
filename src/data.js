@@ -1,13 +1,49 @@
-export const course={
-  slug:'product-design-intensive', title:'Product Design Intensive', eyebrow:'Flagship course · Cohort 03', duration:'12 weeks', format:'Live online · 2 sessions/week', students:'16 students max', progress:68,
-  summary:'A rigorous, practice-led program for designers who want to think clearly, make better product decisions, and build work they are proud to show.',
+const lesson=(number,id,title)=>({id,title,number,type:'Lesson',done:false,required:true})
+
+export const aiDesignCourse={
+  slug:'ai-design',
+  title:'AI Design',
+  tagline:'Learn AI Design from scratch',
+  eyebrow:'Course 01 · Design foundations',
+  duration:'4 months',
+  format:'Practice-led · guided learning',
+  students:'Small cohort',
+  nextStart:'To be announced',
+  progress:0,
+  summary:'A four-month program for learning design from scratch: UX research, interaction, UI, Figma, prototyping, testing, product thinking and delivery, with AI becoming part of the working process.',
+  shortSummary:'A four-month practical journey through UX, UI, product thinking, Figma, prototyping, testing and delivery.',
   modules:[
-    {id:'01',title:'Product thinking',status:'complete',lessons:[{id:'problem-framing',title:'Framing the right problem',type:'Recording · 1h 24m',done:true},{id:'research-synthesis',title:'Research without theatre',type:'Recording · 1h 08m',done:true},{id:'assignment-brief',title:'Assignment: Opportunity map',type:'Brief · Due Sep 14',done:true}]},
-    {id:'02',title:'Interaction foundations',status:'active',lessons:[{id:'flows',title:'Flows before screens',type:'Recording · 1h 31m',done:true},{id:'states',title:'States, edges and failure',type:'Live session · Tomorrow, 19:00',done:false},{id:'prototype',title:'Assignment: Testable prototype',type:'Brief · Due Sep 28',done:false}]},
-    {id:'03',title:'Visual systems',status:'locked',lessons:[{id:'hierarchy',title:'Hierarchy and rhythm',type:'Lesson · 1h 20m'},{id:'systems',title:'Designing a small system',type:'Workshop · 2h'}]},
-    {id:'04',title:'Product craft',status:'locked',lessons:[{id:'critique',title:'Giving and using critique',type:'Studio · 1h 30m'},{id:'handoff',title:'From design to shipped product',type:'Lesson · 1h 10m'}]},
-  ]
+    {id:'01',title:'Foundations & Research',status:'active',lessons:[
+      lesson(1,'intro-to-ux-design','Intro to UX Design'),lesson(2,'design-thinking','Design Thinking'),lesson(3,'ux-research','UX Research'),lesson(4,'user-research','User Research'),lesson(5,'empathy','Empathy'),lesson(6,'intro-to-personas','Intro to Personas'),lesson(7,'personas-workshop','Personas Workshop'),lesson(8,'competitor-analysis','Competitor Analysis'),lesson(9,'user-logic-map-and-user-flows','User Logic Map & User Flows'),lesson(10,'customer-journey-map','Customer Journey Map'),lesson(11,'customer-journey-map-workshop','Customer Journey Map Workshop'),
+    ]},
+    {id:'02',title:'UI, Figma & Visual Systems',status:'active',lessons:[
+      lesson(12,'intro-to-ui','Intro to UI'),lesson(13,'ui-elements','UI Elements'),lesson(14,'layout-design-grid-systems-and-wireframes','Layout Design, Grid Systems & Wireframes'),lesson(15,'figma-and-figjam','Figma & FigJam'),lesson(16,'typography','Typography'),lesson(17,'color','Color'),lesson(18,'information-architecture','Information Architecture'),lesson(19,'ui-kits-and-figma','UI Kits & Figma'),lesson(20,'ui-kit-workshop','UI Kit Workshop'),lesson(21,'components','Components'),lesson(22,'high-fidelity-prototypes-and-micro-interactions','High-Fidelity Prototypes & Micro-Interactions'),
+    ]},
+    {id:'03',title:'Product Design in Practice',status:'active',lessons:[
+      lesson(23,'design-project-kick-off','Design Project Kick-off'),lesson(24,'landing-pages','Landing Pages'),lesson(25,'blog','Blog'),lesson(26,'ecommerce','eCommerce'),lesson(27,'admin-panel','Admin Panel'),lesson(28,'cross-platform-design','Cross-platform Design'),lesson(29,'mobile-ux','Mobile UX'),lesson(30,'design-resources','Design Resources'),lesson(31,'ux-laws','UX Laws'),lesson(32,'ideation-techniques','Ideation Techniques'),lesson(33,'testing','Testing'),lesson(34,'design-handoff','Design Handoff'),
+    ]},
+    {id:'04',title:'Product Thinking, Delivery & Career',status:'active',lessons:[
+      lesson(35,'building-a-case-study','Building a Case Study'),lesson(36,'hook-model-snp-and-dark-patterns','Hook Model, SNP & Dark Patterns'),lesson(37,'progress-check','Progress Check'),lesson(38,'interaction-design','Interaction Design'),lesson(39,'project-management','Project Management'),lesson(40,'roadmapping','Roadmapping'),lesson(41,'how-to-create-a-great-application','How to Create a Great Application'),lesson(42,'accessibility','Accessibility'),lesson(43,'mental-models','Mental Models'),lesson(44,'final-quiz-and-progress-check','Final Quiz & Progress Check'),
+    ]},
+  ],
 }
-export const skills=[['Product thinking',78],['Interaction design',66],['Visual craft',54],['Communication',72]]
-export const assignments=[{title:'Opportunity map',status:'Reviewed',mark:'8.7',note:'Strong synthesis. Make the prioritisation logic more explicit.'},{title:'Core user flow',status:'Submitted',mark:'—',note:'Review scheduled for Friday.'},{title:'Testable prototype',status:'In progress',mark:'—',note:'Due Sep 28'}]
-export const outcomes=['Frame ambiguous product problems','Turn research into clear decisions','Build flows that hold up at the edges','Design interfaces with rhythm and purpose','Present work with conviction']
+
+export const courses=[aiDesignCourse]
+export const course=aiDesignCourse
+export const skills=[]
+export const assignments=[
+  {title:'Research synthesis',status:'Not started',mark:'—',note:'Turn research findings into a clear problem statement, key insights and design opportunities.'},
+  {title:'Persona & journey map',status:'Not started',mark:'—',note:'Build a grounded persona and customer journey based on evidence from research.'},
+  {title:'UI foundations',status:'Not started',mark:'—',note:'Create the visual foundation: layout, typography, color and reusable UI patterns.'},
+  {title:'Interactive prototype',status:'Not started',mark:'—',note:'Build and test a high-fidelity Figma prototype with key flows and important interaction states.'},
+  {title:'Product design project',status:'Not started',mark:'—',note:'Design a complete product experience across the required screens/platforms.'},
+  {title:'Case study',status:'Not started',mark:'—',note:'Turn the full project into a portfolio case study explaining process, decisions and outcomes.'},
+]
+export const outcomes=[
+  'Understand UX, UI and product design foundations from scratch',
+  'Research users and turn evidence into clear design decisions',
+  'Design user flows, information architecture and interfaces in Figma',
+  'Build reusable UI systems, prototypes and micro-interactions',
+  'Test, iterate and prepare design work for implementation',
+  'Build and present a complete portfolio-ready case study',
+]

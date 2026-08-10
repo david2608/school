@@ -1,16 +1,14 @@
 import {demoMode,supabase} from './supabase'
 import {course as demoCourse,assignments as demoAssignments,skills as demoSkills} from '../data'
 
-const demoResources=[
-  {id:'demo-slides',title:'Session slides',kind:'slides',url:'#',lessonTitle:'Flows before screens'},
-  {id:'demo-worksheet',title:'Flow mapping worksheet',kind:'file',url:'#',lessonTitle:'Flows before screens'},
-]
+const demoResources=[]
 
 function demoExperience(){
   const mappedAssignments=demoAssignments.map((a,i)=>({id:`demo-${i+1}`,title:a.title,brief:a.note,due_at:null,status:a.status.toLowerCase().replace(' ','_'),mark:a.mark==='—'?null:Number(a.mark),feedback:a.status==='Reviewed'?a.note:'',submission_url:'',submission_note:''}))
   const mappedCourse={...demoCourse,modules:demoCourse.modules.map(module=>({...module,lessons:module.lessons.map(lesson=>({...lesson}))}))}
   mappedCourse.progress=calculateProgress(mappedCourse.modules,mappedAssignments)
-  return {profile:{full_name:'David P.'},enrollment:{cohort:'03'},course:mappedCourse,assignments:mappedAssignments,resources:demoResources,skills:demoSkills,isDemo:true}
+  const enrollment={id:'demo-enrollment',cohort:'Demo',course:mappedCourse}
+  return {profile:{full_name:'David P.'},enrollments:[enrollment],enrollment,course:mappedCourse,assignments:mappedAssignments,resources:demoResources,skills:demoSkills,isDemo:true}
 }
 
 function calculateProgress(modules,assignments){
@@ -22,15 +20,16 @@ function calculateProgress(modules,assignments){
   return total?Math.round(((completeLessons+submitted)/total)*100):0
 }
 
-export async function getStudentExperience(userId){
+export async function getStudentExperience(userId,activeCourseId){
   if(demoMode)return demoExperience()
-  const [{data:profile,error:profileError},{data:enrollment,error:enrollmentError}]=await Promise.all([
+  const [{data:profile,error:profileError},{data:enrollments,error:enrollmentError}]=await Promise.all([
     supabase.from('profiles').select('id,full_name,avatar_url').eq('id',userId).single(),
-    supabase.from('enrollments').select('id,cohort,course:courses(id,slug,title,summary)').eq('user_id',userId).order('enrolled_at',{ascending:false}).limit(1).maybeSingle(),
+    supabase.from('enrollments').select('id,cohort,enrolled_at,course:courses(id,slug,title,summary)').eq('user_id',userId).order('enrolled_at',{ascending:false}),
   ])
   if(profileError)throw profileError
   if(enrollmentError)throw enrollmentError
-  if(!enrollment)return {profile,enrollment:null,course:null,assignments:[],resources:[],skills:[],isDemo:false}
+  const enrollment=activeCourseId?(enrollments||[]).find(item=>item.course?.id===activeCourseId):(enrollments||[])[0]
+  if(!enrollment)return {profile,enrollments:enrollments||[],enrollment:null,course:null,assignments:[],resources:[],skills:[],isDemo:false}
 
   const courseId=enrollment.course.id
   const {data:modules,error:modulesError}=await supabase.from('modules').select('id,title,position').eq('course_id',courseId).eq('published',true).order('position')
@@ -61,7 +60,7 @@ export async function getStudentExperience(userId){
   }))
   const course={...enrollment.course,modules:mappedModules}
   course.progress=calculateProgress(mappedModules,mappedAssignments)
-  return {profile,enrollment,course,assignments:mappedAssignments,resources:mappedResources,skills:(skillScores||[]).map(item=>[item.skill,item.score]),isDemo:false}
+  return {profile,enrollments:enrollments||[],enrollment,course,assignments:mappedAssignments,resources:mappedResources,skills:(skillScores||[]).map(item=>[item.skill,item.score]),isDemo:false}
 }
 
 export async function setLessonComplete(userId,lessonId,complete=true){

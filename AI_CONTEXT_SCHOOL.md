@@ -6,7 +6,7 @@ This repository is the standalone website for `school.pedanyan.com`. It is part 
 
 MVP includes:
 
-- Public pages: Home, Courses, Product Design Intensive, Method, About, Apply, Login.
+- Public pages: Home, Courses, dynamic Course detail, Method, About, Apply, Login.
 - Student cabinet: overview, course/module/lesson navigation, recordings, slides and resources, assignments, feedback/marks, and skill progress.
 - Supabase as the temporary backend and operational admin layer.
 
@@ -19,6 +19,9 @@ The design is editorial, direct, and practice-focused: warm paper, near-black in
 ## Architecture
 
 - Vite + React SPA; React Router owns routes.
+- The product hierarchy is School → Courses → Course → Modules → Lessons → Resources/Assignments → Progress. Never hardcode the platform around one course.
+- Public course details resolve at `/courses/:slug`; the first course is `/courses/ai-design`.
+- `src/data.js` exports `courses` plus a temporary `course` alias for the current demo course. Supabase enrollments remain many-per-student.
 - `src/lib/auth.jsx` owns live session state and `src/lib/student.jsx` owns the shared student experience.
 - `src/lib/api.js` is the single Supabase query/mutation layer.
 - `src/data.js` remains the complete demo fallback content source.
@@ -27,6 +30,12 @@ The design is editorial, direct, and practice-focused: warm paper, near-black in
 - With credentials present, cabinet routes require Auth and load profile, enrollment, course, lessons, progress, resources, assignments, submissions, marks, and feedback from Supabase.
 - Course completion combines required completed lessons and required submitted assignments. Skill scores are separate and hidden in live mode when absent.
 - `supabase/schema.sql` defines the relational model, public application insert, and student-scoped RLS. `supabase/seed.sql` creates one test journey.
+
+## Current course source
+
+The first course is **AI Design**: “Learn AI Design from scratch,” lasting four months. Its current 44-lesson design-foundation curriculum comes from the original [UX/UI A→Z Figma course](https://www.figma.com/design/JT3I5vhyZPeiY7lVCUvhni/UX-UI-A-%3EZ-Course---Apr--2025). The source curriculum covers UX, UI, Figma, prototyping, testing, product thinking, delivery, and career foundations.
+
+AI-specific curriculum expansion has not been defined yet. Do not silently invent AI-specific lesson titles; additions require an explicit follow-up source or product decision.
 
 ## Next implementation steps
 

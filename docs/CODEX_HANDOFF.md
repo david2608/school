@@ -2,7 +2,9 @@
 
 ## Current state
 
-The Pedanyan School MVP is a standalone Vite + React application for `school.pedanyan.com`. With Supabase configured, its first complete student journey is live: authentication, enrolled curriculum, lesson resources/completion, computed progress, assignment submission/resubmission, and reviewed marks/feedback. Public applications persist to Supabase.
+The Pedanyan School MVP is a standalone, multi-course Vite + React application for `school.pedanyan.com`. With Supabase configured, its first complete student journey is live: authentication, enrolled curriculum, lesson resources/completion, computed progress, assignment submission/resubmission, and reviewed marks/feedback. Public applications persist to Supabase.
+
+The first course is **AI Design**, lasting four months at `/courses/ai-design`. Its current four-module, 44-lesson curriculum faithfully uses the supplied UX/UI A→Z Figma syllabus as the design foundation. AI-specific lesson expansion is intentionally deferred.
 
 Do not add a mentor or admin cabinet during the MVP phase. Supabase Studio is the temporary operational admin layer.
 
@@ -22,7 +24,7 @@ When `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are absent, the login page
 
 - `/`
 - `/courses`
-- `/courses/product-design-intensive`
+- `/courses/:slug` (current: `/courses/ai-design`)
 - `/method`
 - `/about`
 - `/apply`
@@ -42,13 +44,13 @@ When `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are absent, the login page
 - `AI_CONTEXT_SCHOOL.md`: enduring product, design, and architecture decisions.
 - `src/App.jsx`: route components and application shell.
 - `src/styles.css`: shared public and cabinet design system.
-- `src/data.js`: demo course, lesson, assignment, and skill data.
+- `src/data.js`: multi-course demo catalog, curriculum, and assignment data.
 - `src/lib/supabase.js`: environment-aware Supabase client.
 - `src/lib/auth.jsx`: persisted session, login/logout, and password reset.
 - `src/lib/api.js`: all database reads and writes.
-- `src/lib/student.jsx`: shared loading/error/data state and mutations.
+- `src/lib/student.jsx`: shared loading/error/data state, active-course selection, and mutations.
 - `supabase/schema.sql`: initial schema, profile trigger, and student RLS policies.
-- `supabase/seed.sql`: realistic sample course and optional test-student enrollment.
+- `supabase/seed.sql`: AI Design’s four modules, 44 lessons, six assignments, and optional test-student enrollment.
 - `docs/DEPLOYMENT.md`: local, Supabase, hosting, and domain setup.
 
 ## Production follow-up
