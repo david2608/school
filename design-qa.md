@@ -1,57 +1,54 @@
-# Fullscreen lesson presentation design QA
+# Application testimonial carousel design QA
 
-- Source visual truth: `design-audit/01-user-preview.png`
-- Initial implementation: `design-audit/02-current-desktop.png`
-- Final desktop implementation: `design-audit/05-fullscreen-desktop.png`
-- Final mobile implementation: `design-audit/06-fullscreen-mobile.png`
-- Dense mobile content state: `design-audit/07-mobile-content-slide.png`
-- Route/state: `/cabinet/lesson/design-thinking`, demo mode, slides 1–3
+- Source visual truth: `/var/folders/yp/bw0jgw793lb4qbqxpygwzxnc0000gn/T/codex-clipboard-bf2365f6-6f4b-4bdb-acbe-e578ef21a74d.png`
+- Desktop implementation: `design-audit/08-apply-carousel-desktop.png`
+- Mobile implementation: `design-audit/09-apply-carousel-mobile.png`
+- Side-by-side comparison: `design-audit/10-apply-reference-comparison.png`
+- Route/state: `/apply`, first placeholder story, empty application form
 - Desktop viewport: 1280 × 720 CSS px at 1× density
-- Mobile viewport: 390 × 844 CSS px at 1× density
-- Source pixels: 1646 × 1132; desktop implementation: 1280 × 720; mobile implementation: 390 × 844
-- Normalization: the source screenshot documents the broken desktop state rather than a pixel-match target. QA compares the corrected implementation against the established Pedanyan School layout and the user-requested single-viewport presentation behavior.
+- Mobile viewport: 390 × 844 CSS px at 1× density; full-page capture is 390 × 1538 px
+- Source pixels: 3340 × 2004; desktop implementation pixels: 1280 × 720
+- Normalization: compared as full-width two-column conversion compositions. The reference supplies layout and interaction direction only; Pedanyan typography, imagery, colors, copy, and form behavior intentionally remain product-specific.
 
 **Full-view comparison evidence**
 
-- The original slide stage collapsed into a narrow navigation track. The final desktop stage fills the full cabinet content area from below the 72 px header to the bottom of the viewport.
-- The final mobile view is exactly one 390 × 844 viewport with no document-level horizontal or vertical scrolling.
-- The slide is the dominant surface; lesson title, outer deck label, instructional copy, notes, materials, source-frame label, search action, and portal disclaimer are absent from presentation mode.
+- `design-audit/10-apply-reference-comparison.png` places the visual source and implementation in one comparison frame.
+- Both use a dominant, rounded editorial story panel on the left and a quieter conversion form on the right.
+- The Pedanyan implementation uses the application form rather than copying the reference sign-up fields or third-party login options.
+- The desktop canvas remains one viewport; only the longer form panel scrolls when necessary, while the story remains stable.
 
 **Focused region comparison evidence**
 
-- Toolbar: only `current / total` remains (`1 / 26`), using DM Mono and no Figma frame name.
-- Navigation: previous/next controls remain visible at the slide edges; button and keyboard navigation both advance the counter.
-- Active navigation: `Course` is visibly highlighted for `/cabinet/lesson/*` routes.
-- Dense mobile slide: slide 3 fits within the stage without internal or document scrolling.
+- Story panel: real raster portrait, dark lower treatment, quote, placeholder identity, pagination, and previous/next controls remain readable and visually grouped.
+- Application panel: brand, course context, heading, supporting copy, required fields, and submit action retain a calm hierarchy.
+- Login: the carousel is absent from `/login`; the authentication, reset, recovery, and demo-mode controls remain in the existing auth component.
 
 **Required fidelity surfaces**
 
-- Fonts and typography: Pedanyan Manrope/DM Mono hierarchy is consistent across cabinet and slides; mobile titles use responsive sizes and wrapping.
-- Spacing and layout rhythm: the presentation consumes `calc(100svh - 72px)` with compact 14 px desktop and 8 px mobile stage padding; unused explanatory whitespace and duplicated headers were removed.
-- Colors and visual tokens: paper, ink, forest green, lime, and thin rule tokens are consistently used; blue/purple imported styling and oversized shadows are absent.
-- Image quality and asset fidelity: existing course media remains unchanged and uses the imported source assets; no substitute shapes or raster replacements were introduced.
-- Copy and content: slide copy is preserved. Non-content portal copy and Figma frame/source labels are intentionally removed from presentation mode.
+- Fonts and typography: Manrope, Georgia, and DM Mono retain the Pedanyan editorial hierarchy; the application headline is the primary conversion message.
+- Spacing and layout rhythm: desktop uses a 24 px outer frame and a 56/44 composition; mobile puts the application first and the story below.
+- Colors and visual tokens: paper, ink, forest, lime, and restrained rules remain consistent; the reference's blue SaaS styling was not copied.
+- Image quality and asset fidelity: the existing optimized editorial portraits are reused at full-bleed scale with stable crops and no placeholder boxes.
+- Copy and content: testimonial identities and claims remain explicitly identified as development placeholders. Application copy and fields are unchanged in meaning.
 
 **Comparison history**
 
-- P1: imported responsive grid ordering placed the slide stage in a 52 px track. Fixed by restoring presentation grid order. Post-fix evidence: `design-audit/03-fixed-desktop.png`.
-- P2: imported viewer controls and cards used a conflicting blue/purple SaaS visual language. Fixed with Pedanyan tokens, typography, thin rules, square cards, and restrained controls. Post-fix evidence: `design-audit/03-fixed-desktop.png`.
-- P2: the first mobile revision allowed intrinsic slide content to clip. Fixed with min-width constraints, responsive single-column slide layouts, and smaller mobile type/media. Post-fix evidence: `design-audit/04-fixed-mobile.png`.
-- P2: outer lesson headings, deck labels, source frame name, search action, footer disclaimer, notes, and materials kept the slide below the fold and made the page scroll. Fixed by introducing a dedicated fullscreen presenter and counter-only toolbar. Post-fix evidence: `design-audit/05-fullscreen-desktop.png`, `design-audit/06-fullscreen-mobile.png`, and `design-audit/07-mobile-content-slide.png`.
+- P2: the first application layout allowed the taller form to stretch the carousel and the document beyond the desktop viewport. Fixed by constraining the desktop composition to `100svh`, keeping the story stable, and allowing only the application panel to scroll. Post-fix evidence: `design-audit/08-apply-carousel-desktop.png`.
+- P2: placing the story before the form on mobile would compete with the primary conversion task. Fixed by ordering the application first and the carousel second below 900 px. Post-fix evidence: `design-audit/09-apply-carousel-mobile.png`; form top is 0 px and carousel top is 938.56 px.
 
 **Findings**
 
-- No remaining P0, P1, or P2 findings in the tested cover and content-slide states.
+- No remaining P0, P1, or P2 findings.
 
 **Primary interactions tested**
 
-- Next button advances from slide 1 to slide 2.
-- ArrowRight keyboard input advances from slide 2 to slide 3.
-- `Course` remains active on the lesson route.
-- Desktop 1280 × 720, tablet 768 × 1024, and mobile 390 × 844 have no page-level overflow.
+- Next-story control resolves uniquely and advances the carousel.
+- The application form remains present with its existing submission handler.
+- `/login` contains the authentication panel and no testimonial carousel.
+- Desktop and 390 px mobile render without horizontal overflow.
 
 **Console**
 
-- No runtime errors observed after desktop or mobile verification.
+- No runtime errors observed on `/apply` or `/login` during desktop/mobile verification.
 
 final result: passed
