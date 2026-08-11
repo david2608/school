@@ -7,11 +7,12 @@ import {useAuth} from './lib/auth'
 import {useStudent} from './lib/student'
 import {saveApplication} from './lib/api'
 import {testimonials} from './content/testimonials'
+import ContactWidget from './components/ContactWidget'
 
 const Logo=()=> <Link to="/" className="logo"><span>P</span> PEDANYAN <i>/ SCHOOL</i></Link>
 function PublicHeader(){const [open,setOpen]=useState(false);return <header className="public-header"><Logo/><button className="menu" onClick={()=>setOpen(!open)}>{open?<X/>:<Menu/>}</button><nav className={open?'open':''}>{[['Courses','/courses'],['Method','/method'],['About','/about']].map(([n,p])=><NavLink key={p} to={p} onClick={()=>setOpen(false)}>{n}</NavLink>)}<Link className="text-link" to="/login">Student login</Link><Link className="button small" to="/apply">Apply now <ArrowUpRight size={15}/></Link></nav></header>}
 const Footer=()=> <footer><Logo/><p>Serious design education,<br/>without the performance.</p><div><Link to="/courses">Courses</Link><Link to="/method">Method</Link><Link to="/apply">Apply</Link></div><small>© 2026 Pedanyan Design School · Yerevan</small></footer>
-const Public=({children})=><><PublicHeader/><main>{children}</main><Footer/></>
+const Public=({children})=><><PublicHeader/><main>{children}</main><ContactWidget/><Footer/></>
 const Kicker=({children})=><div className="kicker"><span/> {children}</div>
 
 function Home(){return <Public><section className="hero"><Kicker>{course.title} · {course.duration}</Kicker><h1>Learn AI Design.<br/><em>From scratch.</em></h1><div className="hero-bottom"><p>Learn the complete design process through practice, feedback and real project work.</p><div><Link className="button" to={`/courses/${course.slug}`}>Explore the course <ArrowRight/></Link><Link className="under" to="/method">See how we teach</Link></div></div></section><section className="ticker"><span>UX RESEARCH</span><b>✦</b><span>UI DESIGN</span><b>✦</b><span>FIGMA</span><b>✦</b><span>PROTOTYPING</span><b>✦</b><span>PRODUCT THINKING</span></section><section className="split"><div><Kicker>The school</Kicker><h2>Better work starts with better questions.</h2></div><div className="prose"><p>Pedanyan is a small, focused design school built around practice, feedback, and the kind of judgment that can’t be learned from watching tutorials.</p><p>You’ll work on real product problems, make decisions under constraints, and learn to explain the thinking behind your work.</p><Link className="under" to="/method">Our teaching method <ArrowRight size={16}/></Link></div></section><CourseFeature courseData={course} index={1}/><section className="manifesto"><Kicker>What we believe</Kicker><h2>Tools change.<br/>Taste evolves.<br/><em>Clear thinking lasts.</em></h2></section></Public>}
