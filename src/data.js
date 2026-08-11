@@ -6,12 +6,10 @@ export const aiDesignCourse={
   tagline:'Learn AI Design from scratch',
   eyebrow:'Course 01 · Design foundations',
   duration:'4 months',
-  format:'Practice-led · guided learning',
-  students:'Small cohort',
-  nextStart:'To be announced',
+  format:'Practice · critique · revision',
   progress:0,
-  summary:'A four-month program for learning design from scratch: UX research, interaction, UI, Figma, prototyping, testing, product thinking and delivery, with AI becoming part of the working process.',
-  shortSummary:'A four-month practical journey through UX, UI, product thinking, Figma, prototyping, testing and delivery.',
+  summary:'Learn design from scratch through research, UX, flows, UI, Figma, prototyping, testing, product thinking, and delivery. AI becomes part of how the work is done.',
+  shortSummary:'A four-month, 44-lesson design foundation. Learn the work from scratch, then use AI as part of the process.',
   modules:[
     {id:'01',title:'Foundations & Research',status:'active',lessons:[
       lesson(1,'intro-to-ux-design','Intro to UX Design'),lesson(2,'design-thinking','Design Thinking'),lesson(3,'ux-research','UX Research'),lesson(4,'user-research','User Research'),lesson(5,'empathy','Empathy'),lesson(6,'intro-to-personas','Intro to Personas'),lesson(7,'personas-workshop','Personas Workshop'),lesson(8,'competitor-analysis','Competitor Analysis'),lesson(9,'user-logic-map-and-user-flows','User Logic Map & User Flows'),lesson(10,'customer-journey-map','Customer Journey Map'),lesson(11,'customer-journey-map-workshop','Customer Journey Map Workshop'),
@@ -40,10 +38,10 @@ export const assignments=[
   {title:'Case study',status:'Not started',mark:'—',note:'Turn the full project into a portfolio case study explaining process, decisions and outcomes.'},
 ]
 export const outcomes=[
-  'Understand UX, UI and product design foundations from scratch',
-  'Research users and turn evidence into clear design decisions',
-  'Design user flows, information architecture and interfaces in Figma',
-  'Build reusable UI systems, prototypes and micro-interactions',
-  'Test, iterate and prepare design work for implementation',
-  'Build and present a complete portfolio-ready case study',
+  'Investigate users, problems and product context before choosing a solution',
+  'Turn research into user flows, information architecture and interface decisions',
+  'Work with typography, color, layout, components and UI systems in Figma',
+  'Build prototypes, interaction states and mobile or cross-platform experiences',
+  'Test the work, revise it and prepare clear design handoff',
+  'Build a case study that explains the project, process and decisions',
 ]

@@ -4,9 +4,9 @@ Pedanyan sounds like an experienced designer, teacher, and maker who still pays 
 
 The working balance is:
 
-- 70% editorial
+- 75% editorial
 - 20% skeptical or provocative
-- 10% natural and conversational
+- 5% natural and conversational
 
 ## Character
 
@@ -17,6 +17,8 @@ Pedanyan is not a motivational speaker, a corporate education company, or an age
 ## Editorial base
 
 Lead with an observation or idea. Use clean rhythm, short paragraphs, concrete language, and enough space for the reader to think. Refer to photography, architecture, music, art, cities, culture, objects, or technology only when the connection helps explain the subject.
+
+Do not confuse editorial writing with writing quotable sentences. A few lines may be memorable. Most sentences should make the argument clearly. Avoid turning every section into a contrast, slogan, rhetorical question, or dramatic one-line statement.
 
 Example:
 

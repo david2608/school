@@ -36,6 +36,8 @@ Flag these phrases unless a quoted source requires them:
 - fake urgency
 - excessive "we believe"
 - a clever line where normal information would work better
+- treating every sentence as a potential quotation
+- turning every section into a contrast, slogan, question, or dramatic one-liner
 - passive voice that hides the person doing the work
 - inanimate concepts made to sound human
 

@@ -2,6 +2,40 @@
 
 These pairs show the decision behind the voice. They are patterns, not mandatory final copy. Verify factual details against [FACTS.md](FACTS.md).
 
+## Approved Voice v1 references
+
+### Home
+
+**Eyebrow:** Pedanyan Design School
+
+**Headline:** Fast screens are easy. Good decisions aren’t.
+
+**Supporting copy:** Learn AI Design from scratch. Four months of understanding people, problems, interfaces, and how AI changes the work without handing your judgment over to it.
+
+**Primary CTA:** View AI Design
+
+**Secondary CTA:** See how we teach
+
+### Course introduction
+
+**Heading:** Learn the work. Then change how it is done.
+
+AI Design starts with design itself: research, UX, flows, interface design, Figma, prototyping, testing, product thinking, and delivery.
+
+Across four months and 44 lessons, you learn how those parts connect. AI enters the process where it helps you work better and faster. The decisions are still yours.
+
+Tools will change again. Understanding the problem gives you somewhere solid to stand.
+
+### About
+
+**Heading:** Design education should survive the next software update.
+
+A tool can become standard, disappear, or reinvent itself within a few years. Building an education around the current interface is a short-term plan.
+
+Pedanyan Design School starts with what lasts longer: how you investigate a problem, understand people, organize a system, test an idea, and explain a decision.
+
+AI changes how much we can produce and how quickly. That makes judgment easier to see. Someone still has to decide what belongs, what fails, and what should not be made at all.
+
 ## Homepage
 
 **Bad:** Unlock your creative potential with the future of AI design.
