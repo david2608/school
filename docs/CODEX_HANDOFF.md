@@ -6,6 +6,8 @@ The Pedanyan School MVP is a standalone, multi-course Vite + React application f
 
 The first course is **AI Design**, lasting four months at `/courses/ai-design`. Its current four-module, 44-lesson curriculum faithfully uses the supplied UX/UI A→Z Figma syllabus as the design foundation. AI-specific lesson expansion is intentionally deferred.
 
+Lesson pages are slide-first. Lessons 1–4 embed the reusable viewer from `public/course-content/index.html?lesson=N`; recording links appear only as secondary actions. The imported viewer source is `/Users/davit/Documents/Codex/Product designer course`. Preserve that relationship when importing further decks, but keep the School cabinet as the outer navigation and progress shell.
+
 Do not add a mentor or admin cabinet during the MVP phase. Supabase Studio is the temporary operational admin layer.
 
 ## Run and verify
@@ -45,6 +47,7 @@ When `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are absent, the login page
 - `src/App.jsx`: route components and application shell.
 - `src/styles.css`: shared public and cabinet design system.
 - `src/data.js`: multi-course demo catalog, curriculum, and assignment data.
+- `public/course-content/`: imported HTML slide viewer plus Figma-derived lesson media for populated lessons.
 - `src/lib/supabase.js`: environment-aware Supabase client.
 - `src/lib/auth.jsx`: persisted session, login/logout, and password reset.
 - `src/lib/api.js`: all database reads and writes.

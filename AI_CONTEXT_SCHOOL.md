@@ -28,6 +28,7 @@ The design is editorial, direct, and practice-focused: warm paper, near-black in
 - `src/lib/supabase.js` creates a client only when both Vite environment values exist.
 - With credentials absent, login deliberately enters demo mode so every route is reviewable.
 - With credentials present, cabinet routes require Auth and load profile, enrollment, course, lessons, progress, resources, assignments, submissions, marks, and feedback from Supabase.
+- Lessons are slide-first. The slide deck is the primary learning surface; recordings are optional secondary material rather than the default lesson body.
 - Course completion combines required completed lessons and required submitted assignments. Skill scores are separate and hidden in live mode when absent.
 - `supabase/schema.sql` defines the relational model, public application insert, and student-scoped RLS. `supabase/seed.sql` creates one test journey.
 
@@ -35,8 +36,10 @@ The design is editorial, direct, and practice-focused: warm paper, near-black in
 
 The first course is **AI Design**: “Learn AI Design from scratch,” lasting four months. Its current 44-lesson design-foundation curriculum comes from the original [UX/UI A→Z Figma course](https://www.figma.com/design/JT3I5vhyZPeiY7lVCUvhni/UX-UI-A-%3EZ-Course---Apr--2025). The source curriculum covers UX, UI, Figma, prototyping, testing, product thinking, delivery, and career foundations.
 
+The reusable course portal source lives at `/Users/davit/Documents/Codex/Product designer course`. Its `index.html` contains populated HTML slide decks, resources, homework, and quizzes for Lessons 1–4; `media/lesson-01` contains extracted Figma assets. A viewer-only copy is integrated under `public/course-content/` and embedded by lesson number in the student cabinet. Lessons 1–3 are Figma-derived; Lesson 4 was authored in the earlier portal and should be treated as draft content.
+
 AI-specific curriculum expansion has not been defined yet. Do not silently invent AI-specific lesson titles; additions require an explicit follow-up source or product decision.
 
 ## Next implementation steps
 
-Configure the first Supabase project, replace seed URLs with real recordings/materials, and add rate limiting at the edge if application spam becomes material. The student MVP is real; mentor/admin operations remain in Supabase Studio.
+Continue importing approved Figma decks into the reusable slide content model, then configure the first Supabase project and add rate limiting at the edge if application spam becomes material. The student MVP is real; mentor/admin operations remain in Supabase Studio.
