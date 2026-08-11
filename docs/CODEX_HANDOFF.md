@@ -44,6 +44,9 @@ When `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` are absent, the login page
 ## Important files
 
 - `AI_CONTEXT_SCHOOL.md`: enduring product, design, and architecture decisions.
+- `AGENTS.md` and `brand/`: required brand voice workflow, factual claim whitelist, anti-fluff rules, and examples.
+- `.agents/skills/pedanyan-brand-voice/`: skill for creating new user-visible copy.
+- `.agents/skills/pedanyan-content-editor/`: skill for material rewrites and content QA.
 - `src/App.jsx`: route components and application shell.
 - `src/styles.css`: shared public and cabinet design system.
 - `src/data.js`: multi-course demo catalog, curriculum, and assignment data.

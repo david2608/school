@@ -16,6 +16,8 @@ Explicitly out of scope for MVP: a mentor cabinet, admin cabinet, payments, chat
 
 The design is editorial, direct, and practice-focused: warm paper, near-black ink, deep green, and a sharp lime accent. Manrope handles utility and interface copy; Georgia provides the human editorial contrast; DM Mono marks metadata. Maintain large confident type, strong spacing, thin rules, and minimal effects. Avoid generic course-marketplace patterns and decorative UI.
 
+All new or materially revised user-visible copy follows the persistent system in `brand/`. Repository skills live at `.agents/skills/pedanyan-brand-voice/` and `.agents/skills/pedanyan-content-editor/`; root `AGENTS.md` defines when to use them. `brand/FACTS.md` is the whitelist for factual marketing claims. Do not invent facts or present placeholder testimonials as real.
+
 ## Architecture
 
 - Vite + React SPA; React Router owns routes.

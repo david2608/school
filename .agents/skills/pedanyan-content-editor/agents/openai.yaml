@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pedanyan Content Editor"
+  short_description: "Edit copy for clarity, specificity, and voice"
+  default_prompt: "Use $pedanyan-content-editor to review and tighten this Pedanyan School copy."

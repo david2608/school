@@ -1,0 +1,4 @@
+interface:
+  display_name: "Pedanyan Brand Voice"
+  short_description: "Write new copy in the Pedanyan voice"
+  default_prompt: "Use $pedanyan-brand-voice to write specific, factual Pedanyan School copy."
