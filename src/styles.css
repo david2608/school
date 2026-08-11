@@ -61,3 +61,8 @@
 .lesson-deck-empty{margin:40px 0 22px;min-height:220px;border:1px solid var(--line);display:grid;place-items:center;align-content:center;gap:14px;color:var(--muted);font-size:13px;background:#eeece4}
 .lesson-recording{display:flex;align-items:center;gap:12px;width:max-content;margin:0 0 42px;padding:13px 16px;border:1px solid var(--line);font-size:12px;background:#fff}.lesson-recording svg:last-child{margin-left:8px}
 @media(max-width:800px){.lesson-presenter{height:calc(100svh - 72px)}.lesson-deck{margin:30px -20px 20px;border-left:0;border-right:0}.lesson-deck>header{align-items:flex-start;padding:13px 20px}.lesson-deck>header>span{display:none}.lesson-deck iframe{height:620px;min-height:0}.lesson-deck-empty{margin:30px 0 20px}.lesson-recording{margin-bottom:30px}}
+
+/* Apply keeps its focused form layout; student stories belong to Login. */
+.apply-page{display:block;height:auto;min-height:100svh;padding:0;overflow:visible;background:var(--paper)}
+.apply-page>.application-auth{width:100%;max-width:680px;height:auto;min-height:100svh;margin:0 auto;overflow:visible;border-right:1px solid var(--line);border-left:1px solid var(--line);background:var(--paper)}
+@media(max-width:900px){.apply-page>.application-auth{max-width:none;border:0}}
