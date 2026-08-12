@@ -1,5 +1,16 @@
 # Pedanyan School — project context
 
+## Public visual direction
+
+The public website uses **Direction 03 — The Cultural Programme**. It treats Pedanyan as a small contemporary design institution rather than a generic course marketplace.
+
+- Palette: mineral navy, projector white, muted cyan, film ochre, oxide red.
+- Typography: Newsreader for display, Figtree for reading and interface copy, DM Mono for programme labels.
+- Structure: visual chapters with varied density and exhibition-like pacing, using actual course-deck imagery.
+- Motion: one restrained opening sequence; no parallax or scroll hijacking; respect `prefers-reduced-motion`.
+- Avoid returning to oversized SaaS heroes, repeated two-column editorial sections, outlined display numbers, decorative tickers, predictable card grids, or generic Swiss/neo-brutalist styling.
+- The student cabinet and lesson slides remain product UI and are not part of this public redesign.
+
 ## Product decision
 
 This repository is the standalone website for `school.pedanyan.com`. It is part of the wider Pedanyan personal brand, but School has its own focused public conversion journey and learning product.
