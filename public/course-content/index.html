@@ -2113,17 +2113,30 @@
     }
     body.embed{--bg:#f1eee6;--bg-deep:#dedbd1;--panel:#faf9f4;--panel-soft:#f5f4ef;--line:#c9c7bd;--line-strong:#a9aaa3;--ink:#181b18;--muted:#6d706a;--muted-strong:#3e423d;--accent:#174c3a;--accent-strong:#174c3a;--accent-soft:rgba(23,76,58,.12);--violet:#d9fb63;--violet-soft:rgba(217,251,99,.25);height:100vh;min-height:0;background:#f3f1e9;overflow:hidden;font-family:Manrope,sans-serif}
     .embed .app-shell{display:block;height:100%;min-height:0}
-    .embed .sidebar,.embed .topbar,.embed .lesson-hero,.embed .panel-header,.embed #resourcesPanel,.embed #homeworkPanel,.embed #quizPanel{display:none!important}
-    .embed .main-shell,.embed .content-shell,.embed .panel-shell,.embed #slidesPanel{display:block;height:100%;min-height:0}
+    .embed .sidebar,.embed .topbar,.embed .lesson-hero{display:none!important}
+    .embed .main-shell,.embed .content-shell,.embed .panel-shell{height:100%;min-height:0}
     .embed .content-shell{padding:0}
+    .embed .panel-shell{display:grid;grid-template-rows:48px minmax(0,1fr);overflow:hidden}
+    .embed .panel-header{display:flex;align-items:center;padding:6px 80px;border-bottom:1px solid var(--line);background:var(--panel)}
+    .embed .panel-tabs{display:flex;gap:4px;padding:0;border:0;background:transparent;box-shadow:none}
+    .embed .panel-tab{min-width:0;padding:7px 11px;border:1px solid transparent;border-radius:0;font:500 10px 'DM Mono',monospace;text-transform:uppercase;color:var(--muted)}
+    .embed .panel-tab:hover{transform:none;color:var(--ink)}
+    .embed .panel-tab.active{border-color:var(--ink);background:var(--ink);color:#fff;box-shadow:none}
+    .embed .content-panel{height:100%;min-height:0;overflow:auto}
+    .embed #slidesPanel{overflow:hidden}
+    .embed .detail-panel{min-height:100%;border:0;border-radius:0;box-shadow:none;padding:clamp(28px,5vw,72px);background:var(--panel)}
     .embed .viewer-shell{position:relative;grid-template-columns:52px minmax(0,1fr) 52px;gap:14px;height:100%;padding:14px;background:#f1eee6}
     .embed .viewer-shell .viewer-stage,.embed .viewer-shell .nav-arrow.prev,.embed .viewer-shell .nav-arrow.next{order:initial}
     .embed .viewer-stage{width:min(100%,var(--deck-width),calc((100dvh - 76px) * 842 / 595));height:auto;min-height:0;grid-template-rows:24px auto;gap:10px;align-self:center}
     .embed .slide-toolbar{min-height:24px;padding:0;flex-wrap:nowrap;font-family:'DM Mono',monospace;font-size:11px;text-transform:uppercase;letter-spacing:.04em}
-    .embed .slide-toolbar-right,.embed .search-chip,.embed .footer-note{display:none!important}
+    .embed .search-chip,.embed .footer-note{display:none!important}
+    .embed .slide-toolbar-right{display:flex!important;margin-left:auto}
     .embed .slide-position{font-weight:500;color:var(--ink)}
     .embed .pill{padding:5px 8px;border:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;color:var(--muted);font-size:10px}
     .embed .inline-action{padding:4px 0;border:0;border-bottom:1px solid var(--ink);border-radius:0;background:transparent;box-shadow:none;color:var(--ink);font-size:10px;text-transform:uppercase}
+    .embed .slide-jump{display:flex;align-items:center;gap:6px;font:500 10px 'DM Mono',monospace;color:var(--muted)}
+    .embed .slide-jump input{width:42px;padding:4px 5px;border:1px solid var(--line);background:var(--panel);color:var(--ink);text-align:center}
+    .embed .slide-jump button,.embed .fullscreen-inline{padding:4px 7px;border:1px solid var(--line);background:transparent;color:var(--ink);font:500 10px 'DM Mono',monospace;text-transform:uppercase}
     .embed .slide-card{width:100%;height:auto;min-height:0;aspect-ratio:var(--page-ratio);padding:clamp(24px,3vw,48px);box-shadow:none;border:1px solid var(--line);background:var(--panel);overflow:hidden}
     .embed .slide-card::before{display:none}
     .embed .nav-arrow{width:52px;border-radius:50%;min-height:52px;height:52px;align-self:center;box-shadow:none;border:1px solid var(--ink);background:var(--ink);color:#fff}
@@ -2138,7 +2151,7 @@
     .embed .metric-card strong,.embed .mini-card strong,.embed .tag-card strong,.embed .triad-card strong,.embed .profile-name,.embed .prompt-answer{color:var(--green,#174c3a)}
     .embed .profile-roles li::before,.embed .benefit-list li::before,.embed .resource-list li::before,.embed .homework-list li::before,.embed .note-list li::before,.embed .bullet-grid li::before{border-radius:0;background:var(--lime,#d9fb63);border:1px solid var(--ink)}
     .embed .keyword-chip{color:var(--ink);font-weight:500}.embed .role-card.active{background:rgba(217,251,99,.22);border-color:var(--green,#174c3a);transform:none}.embed .role-icon,.embed .thought-badge{border-radius:0;background:var(--lime,#d9fb63);color:var(--ink);box-shadow:none}
-    @media(max-width:720px){.embed .viewer-shell{grid-template-columns:1fr;padding:8px 8px 62px;overflow:hidden}.embed .viewer-shell .viewer-stage{order:initial;min-width:0}.embed .nav-arrow{position:absolute;z-index:4;bottom:8px}.embed .nav-arrow.prev{left:12px}.embed .nav-arrow.next{right:12px}.embed .slide-card{height:100%;min-height:0;max-height:none;padding:20px 18px;overflow:hidden}.embed .slide-card *{min-width:0;max-width:100%}.embed .slide-content,.embed .slide-header,.embed .cover-title,.embed .cover-copy{width:100%;min-width:0}.embed .slide-content{gap:14px}.embed .slide-title{font-size:clamp(24px,8vw,32px);overflow-wrap:break-word}.embed .slide-subtitle,.embed .slide-copy{font-size:12px;line-height:1.45}.embed .cover-title{font-size:clamp(30px,9vw,38px);overflow-wrap:break-word}.embed .cover-copy{font-size:12px;line-height:1.45}.embed .cover-accent{width:110px;height:110px;right:-42px;bottom:-42px}.embed .profile-layout,.embed .definition-layout,.embed .statement-layout,.embed .prompt-answer-layout,.embed .history-hero,.embed .timeline-content,.embed .split-layout,.embed .dual-layout,.embed .comparison-grid,.embed .visual-layout,.embed .usability-layout,.embed .quote-layout,.embed .history-layout{grid-template-columns:minmax(0,1fr)}.embed .profile-layout{align-items:start}.embed .avatar-card,.embed .profile-photo-frame{width:88px;height:88px}.embed .stat-grid,.embed .overview-grid,.embed .gallery-grid,.embed .triad-grid,.embed .role-grid{grid-template-columns:minmax(0,1fr)}.embed .table-wrap{overflow:hidden}.embed .side-media-frame,.embed .visual-media-frame,.embed .prompt-media-frame,.embed .timeline-media-frame,.embed .quote-media-frame,.embed .chart-media-frame,.embed .history-media-frame,.embed .books-banner,.embed .comparison-media-frame,.embed .gallery-media-frame{min-height:110px;max-height:180px}}
+    @media(max-width:720px){.embed .panel-header{padding:6px 8px;overflow-x:auto}.embed .panel-tabs{min-width:max-content}.embed .viewer-shell{grid-template-columns:1fr;padding:8px 8px 62px;overflow:hidden}.embed .viewer-shell .viewer-stage{order:initial;min-width:0}.embed .nav-arrow{position:absolute;z-index:4;bottom:8px}.embed .nav-arrow.prev{left:12px}.embed .nav-arrow.next{right:12px}.embed .slide-toolbar{gap:6px}.embed .slide-jump span,.embed .slide-jump button{display:none}.embed .fullscreen-inline{font-size:0}.embed .fullscreen-inline:after{content:'Full';font-size:10px}.embed .slide-card{height:100%;min-height:0;max-height:none;padding:20px 18px;overflow:hidden}.embed .slide-card *{min-width:0;max-width:100%}.embed .slide-content,.embed .slide-header,.embed .cover-title,.embed .cover-copy{width:100%;min-width:0}.embed .slide-content{gap:14px}.embed .slide-title{font-size:clamp(24px,8vw,32px);overflow-wrap:break-word}.embed .slide-subtitle,.embed .slide-copy{font-size:12px;line-height:1.45}.embed .cover-title{font-size:clamp(30px,9vw,38px);overflow-wrap:break-word}.embed .cover-copy{font-size:12px;line-height:1.45}.embed .cover-accent{width:110px;height:110px;right:-42px;bottom:-42px}.embed .profile-layout,.embed .definition-layout,.embed .statement-layout,.embed .prompt-answer-layout,.embed .history-hero,.embed .timeline-content,.embed .split-layout,.embed .dual-layout,.embed .comparison-grid,.embed .visual-layout,.embed .usability-layout,.embed .quote-layout,.embed .history-layout{grid-template-columns:minmax(0,1fr)}.embed .profile-layout{align-items:start}.embed .avatar-card,.embed .profile-photo-frame{width:88px;height:88px}.embed .stat-grid,.embed .overview-grid,.embed .gallery-grid,.embed .triad-grid,.embed .role-grid{grid-template-columns:minmax(0,1fr)}.embed .table-wrap{overflow:hidden}.embed .side-media-frame,.embed .visual-media-frame,.embed .prompt-media-frame,.embed .timeline-media-frame,.embed .quote-media-frame,.embed .chart-media-frame,.embed .history-media-frame,.embed .books-banner,.embed .comparison-media-frame,.embed .gallery-media-frame{min-height:110px;max-height:180px}}
   </style>
 </head>
 <body class="embed">
@@ -2218,7 +2231,13 @@
                 <div class="slide-toolbar">
                   <div class="slide-toolbar-left" id="slideToolbarLeft"></div>
                   <div class="slide-toolbar-right">
-                    <button class="inline-action" id="relatedSearchButton" type="button">Search related articles</button>
+                    <form class="slide-jump" id="slideJumpForm">
+                      <label for="slideJumpInput">Slide</label>
+                      <input id="slideJumpInput" type="number" min="1" inputmode="numeric" aria-label="Slide number" />
+                      <span id="slideJumpTotal"></span>
+                      <button type="submit">Go</button>
+                    </form>
+                    <button class="fullscreen-inline" id="slideFullscreenButton" type="button">Fullscreen</button>
                   </div>
                 </div>
                 <article class="slide-card" id="slideCard"></article>
@@ -4914,7 +4933,10 @@
     const viewerShell = document.getElementById("viewerShell");
     const slideCard = document.getElementById("slideCard");
     const slideToolbarLeft = document.getElementById("slideToolbarLeft");
-    const relatedSearchButton = document.getElementById("relatedSearchButton");
+    const slideJumpForm = document.getElementById("slideJumpForm");
+    const slideJumpInput = document.getElementById("slideJumpInput");
+    const slideJumpTotal = document.getElementById("slideJumpTotal");
+    const slideFullscreenButton = document.getElementById("slideFullscreenButton");
     const resourcesSection = document.getElementById("resourcesSection");
     const homeworkSection = document.getElementById("homeworkSection");
     const quizSection = document.getElementById("quizSection");
@@ -5781,7 +5803,8 @@
             </div>
           </div>
         `;
-        relatedSearchButton.disabled = true;
+        slideJumpInput.disabled = true;
+        slideFullscreenButton.disabled = true;
         footerNote.textContent = "";
         prevButton.disabled = true;
         nextButton.disabled = true;
@@ -5793,12 +5816,12 @@
       slideToolbarLeft.innerHTML = `
         <span class="slide-position">${state.slideIndex + 1} / ${slides.length}</span>
       `;
+      slideJumpInput.disabled = false;
+      slideFullscreenButton.disabled = false;
+      slideJumpInput.max = slides.length;
+      slideJumpInput.value = state.slideIndex + 1;
+      slideJumpTotal.textContent = `/ ${slides.length}`;
       slideCard.innerHTML = renderSlideMarkup(slide);
-      relatedSearchButton.disabled = false;
-      relatedSearchButton.onclick = () => {
-        const query = `${slide.topic || slide.title} UX UI design`;
-        window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank", "noopener");
-      };
       footerNote.textContent = "";
       prevButton.disabled = state.slideIndex === 0;
       nextButton.disabled = state.slideIndex === slides.length - 1;
@@ -5928,6 +5951,15 @@
     prevButton.addEventListener("click", goToPreviousSlide);
     nextButton.addEventListener("click", goToNextSlide);
 
+    slideJumpForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const slides = getMatchingSlides(getCurrentLesson());
+      const requested = Math.min(slides.length, Math.max(1, Number(slideJumpInput.value) || 1));
+      state.slideIndex = requested - 1;
+      renderSlide();
+      viewerShell.focus();
+    });
+
     searchInput.addEventListener("input", (event) => {
       state.search = event.target.value.trim();
       state.slideIndex = 0;
@@ -5959,7 +5991,7 @@
       }
     });
 
-    fullscreenButton.addEventListener("click", async () => {
+    async function toggleFullscreen() {
       if (document.fullscreenElement) {
         await document.exitFullscreen();
       } else {
@@ -5969,10 +6001,14 @@
         await viewerShell.requestFullscreen();
         viewerShell.focus();
       }
-    });
+    }
+
+    fullscreenButton.addEventListener("click", toggleFullscreen);
+    slideFullscreenButton.addEventListener("click", toggleFullscreen);
 
     document.addEventListener("fullscreenchange", () => {
       fullscreenButton.setAttribute("aria-label", document.fullscreenElement ? "Exit fullscreen" : "Enter fullscreen");
+      slideFullscreenButton.textContent = document.fullscreenElement ? "Exit fullscreen" : "Fullscreen";
       if (document.fullscreenElement === viewerShell) {
         viewerShell.focus();
       }
